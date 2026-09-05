@@ -42,7 +42,7 @@ Then open **http://localhost:8000** in your browser.
 ## Configuration
 Edit `.env` to customize:
 ```env
-CHECKIN_INTERVAL_MIN=22    # Check-in frequency (minutes)
+CHECKIN_INTERVAL_MIN=30    # Check-in frequency (minutes)
 EXCEL_FILE=focus_log.xlsx  # Data file location
 HOST=localhost
 PORT=8000

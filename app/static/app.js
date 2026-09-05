@@ -126,12 +126,12 @@ function showCheckinPopup() {
     checkinUpdateForm.classList.add('hidden');
     checkinNewNote.value = '';
     checkinPopup.classList.remove('hidden');
-    showNotification('Focus Logger Check-in', `Still on: ${currentSession.note || '(no note)'}?`);
+    showNotification('Focus Logger', `Still on: ${currentSession.note || '(no note)'}?`);
     
     if (checkinTimeout) clearTimeout(checkinTimeout);
     checkinTimeout = setTimeout(() => {
         handleCheckin('unconfirmed', currentSession.note);
-    }, 60000);
+    }, 300000);
 }
 function hideCheckinPopup() {
     checkinPopup.classList.add('hidden');

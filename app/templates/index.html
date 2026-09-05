@@ -67,16 +67,18 @@
             </section>
         </div>
     </div>
-    <div id="checkin-popup" class="popup glass-card hidden">
-        <h3>Check-in</h3>
-        <p>Still on: <strong id="checkin-note"></strong>?</p>
-        <div class="popup-actions">
-            <button id="btn-checkin-yes" class="btn primary">Yes</button>
-            <button id="btn-checkin-update" class="btn secondary">Update Note</button>
+    <div id="checkin-popup" class="checkin-toast glass-card hidden">
+        <div class="checkin-content">
+            <div class="checkin-title">Check-ins</div>
+            <div class="checkin-question">Still on: <strong id="checkin-note"></strong></div>
+            <div class="checkin-actions">
+                <button id="btn-checkin-yes" class="btn glass">Yes</button>
+                <button id="btn-checkin-update" class="btn glass">Update Note</button>
+            </div>
         </div>
-        <div id="checkin-update-form" class="hidden">
+        <div id="checkin-update-form" class="checkin-update-form hidden">
             <input type="text" id="checkin-new-note" placeholder="New note...">
-            <button id="btn-checkin-submit" class="btn primary">Submit</button>
+            <button id="btn-checkin-submit" class="btn glass">Submit</button>
         </div>
     </div>
     <script src="/static/app.js"></script>

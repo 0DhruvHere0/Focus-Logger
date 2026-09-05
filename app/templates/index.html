@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Logger</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="container">
+        <div class="glass-card">
+            <header>
+                <h1>Focus Logger</h1>
+            </header>
+            <div id="state-idle" class="state">
+                <h2>Ready to begin?</h2>
+                <p class="hint">Clock in with a quick face check — no images stored.</p>
+                <button id="btn-clock-in" class="btn primary">Clock In</button>
+                <div id="webcam-container" class="hidden">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="canvas" class="hidden"></canvas>
+                    <p class="hint">Center your face in the frame</p>
+                </div>
+            </div>
+            <div id="state-type-select" class="state hidden">
+                <h2>What are you doing?</h2>
+                <div class="form-group">
+                    <label for="session-type">Type</label>
+                    <select id="session-type">
+                        <option value="Studying">Studying</option>
+                        <option value="Break">Break</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="session-note">Note</label>
+                    <input type="text" id="session-note" placeholder="e.g. React hooks, coffee break, AtCoder...">
+                </div>
+                <div class="btn-row">
+                    <button id="btn-start-session" class="btn primary">Start Session</button>
+                    <button id="btn-cancel-type" class="btn secondary">Cancel</button>
+                </div>
+            </div>
+            <div id="state-active" class="state hidden">
+                <div class="session-header">
+                    <span id="active-type" class="badge"></span>
+                    <span id="active-timer" class="timer">00:00:00</span>
+                </div>
+                <p id="active-note" class="active-note"></p>
+                <div class="active-actions">
+                    <button id="btn-switch" class="btn primary">Switch</button>
+                    <button id="btn-end-day" class="btn danger">End Day</button>
+                </div>
+                <div class="face-check-bypass">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="skip-face-check"> Skip face check
+                    </label>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <section id="log-section">
+                <div class="section-header">
+                    <h2>Recent Sessions</h2>
+                    <span id="session-count" class="count-badge">0</span>
+                </div>
+                <div id="sessions-list"></div>
+            </section>
+        </div>
+    </div>
+    <div id="checkin-popup" class="popup glass-card hidden">
+        <h3>Check-in</h3>
+        <p>Still on: <strong id="checkin-note"></strong>?</p>
+        <div class="popup-actions">
+            <button id="btn-checkin-yes" class="btn primary">Yes</button>
+            <button id="btn-checkin-update" class="btn secondary">Update Note</button>
+        </div>
+        <div id="checkin-update-form" class="hidden">
+            <input type="text" id="checkin-new-note" placeholder="New note...">
+            <button id="btn-checkin-submit" class="btn primary">Submit</button>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
